@@ -176,7 +176,7 @@ const recipes = [
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the Recipes API!");
+  res.send("Welcome to server Recipes Food !!");
 });
 
 app.get("/api/recipes", (req, res) => {
