@@ -179,9 +179,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to server Recipes Food !!");
 });
 
-app.get("/api/recipes", (req, res) => {
-  res.json(recipes);
+app.get('/api/recipes/:id', (req, res) => {
+  const { id } = req.params;
+  const recipe = recipes.find((recipe) => recipe.id === parseInt(id));
+  if (recipe) {
+    res.json(recipe);
+  } else {
+    res.status(404).send('Recipe not found');
+  }
 });
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
